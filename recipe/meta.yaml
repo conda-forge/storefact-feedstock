@@ -1,5 +1,5 @@
 {% set name = "storefact" %}
-{% set version = "0.8.5" %}
+{% set version = "0.9.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 94bcf21366fc334b5a0023f3ddbc511e7d59e5c4a9d4896e369543ea54d69b18
+  sha256: 748b13f338c11a04188c920de4c752f94153fabc4647ce551171c7069bc12c26
 
 build:
   noarch: python
