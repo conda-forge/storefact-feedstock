@@ -1,5 +1,5 @@
 {% set name = "storefact" %}
-{% set version = "0.10.0" %}
+{% set version = "0.11.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,20 +7,20 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: d603ffde6f8b2b57590c1bc9ec5814bea068d5b082ff3e468745e79d637f8071
+  sha256: 2140655072b30e5feb1e5a78e667c2c03c791812cc22aed771fbcc9d346bc828
 
 build:
   noarch: python
   number: 0
-  script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv"
+  script: {{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv
 
 requirements:
   host:
-    - python
+    - python >=3.9
     - pip
     - setuptools_scm
   run:
-    - python
+    - python >=3.9
     - simplekv
     - toolz
     - uritools
@@ -34,7 +34,7 @@ about:
   license: BSD-3-Clause
   license_family: BSD
   license_file: LICENSE
-  summary: 'A factory for simplekv-Store-based storage classes.'
+  summary: A factory for simplekv-Store-based storage classes.
   dev_url: https://github.com/blue-yonder/storefact
 
 extra:
