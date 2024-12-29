@@ -6,26 +6,28 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: 2140655072b30e5feb1e5a78e667c2c03c791812cc22aed771fbcc9d346bc828
 
 build:
   noarch: python
-  number: 0
+  number: 1
   script: {{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv
 
 requirements:
   host:
-    - python >=3.9
+    - python {{ python_min }}
     - pip
     - setuptools_scm
   run:
-    - python >=3.9
+    - python >={{ python_min }}
     - simplekv
     - toolz
     - uritools
 
 test:
+  requires:
+    - python {{ python_min }}
   imports:
     - storefact
 
